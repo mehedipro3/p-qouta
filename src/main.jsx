@@ -13,6 +13,7 @@ import Admin from './Components/Admin';
 import Government from './Components/Government';
 import AuthProvider from './Provider/AuthProvider';
 import HomePage from './Pages/HomePage';
+import SubmitInfo from './Components/SubmitInfo';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element: <HomePage></HomePage>
+        element: <HomePage></HomePage>,
+        loader : ()=>fetch("http://localhost:5000/users")
       }
     ]
   },
@@ -35,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/government",
     element: <Government></Government>,
+  },
+  {
+    path: "/submitInfo",
+    element: <SubmitInfo></SubmitInfo>,
   },
 
   {
