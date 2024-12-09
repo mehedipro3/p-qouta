@@ -9,8 +9,11 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const links = <>
     <li><NavLink to="/">Home</NavLink></li>
-    <li><NavLink to="/government">Government</NavLink></li>
+    {/* <li><NavLink to="/government">Government</NavLink></li> */}
     <li><NavLink to="/admin">Admin</NavLink></li>
+    {
+      user && user?.email ?  <li><NavLink to="/myProfile">My Profile</NavLink></li> : ""
+    }
 
   </>
   return (

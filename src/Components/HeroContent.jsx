@@ -13,7 +13,9 @@ const HeroContent = () => {
           <Link to={'/submitInfo'}>
           <button className='btn'>Submit_Info</button>
           </Link>
+          <Link to={'/contactUs'}>
           <button className='btn'>Contact Us</button>
+          </Link>
         </div>
       </div>
     </div>

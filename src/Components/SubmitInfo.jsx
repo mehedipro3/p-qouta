@@ -2,11 +2,11 @@
 const SubmitInfo = () => {
   return (
     <div>
-       <h1>Google Form</h1>
+       <h1 className="text-4xl font-bold text-center py-4">Quota Movement - 2024</h1>
       <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfvgj9hCva89QKx_gpQLvmMzHtnskJEgaabpvKpTRpVFAItLQ/viewform?usp=dialog" // Replace with your Google Form URL
+        src="https://docs.google.com/forms/d/e/1FAIpQLSceBt-DhyZlTO51167z5lPnP50v1qFMNg03PpJI41VgnCsPnA/viewform"
         width="100%"
-        height="500px"
+        height="600px"
         title="Google Form"
       />
     </div>

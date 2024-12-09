@@ -14,17 +14,32 @@ import Government from './Components/Government';
 import AuthProvider from './Provider/AuthProvider';
 import HomePage from './Pages/HomePage';
 import SubmitInfo from './Components/SubmitInfo';
+import DetailsUser from './Components/DetailsUser';
+import ContactUs from './Components/ContactUs';
+import MyProfile from './Components/MyProfile';
+import UpdateProfile from './Components/UpdateProfile';
+import PrivateRouter from './Provider/PrivateProvider';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayouts></HomeLayouts>,
-    errorElement : <h2>Error</h2>,
-    children:[
+    errorElement: <h2>Error</h2>,
+    children: [
       {
-        path:"/",
+        path: "/",
         element: <HomePage></HomePage>,
-        loader : ()=>fetch("http://localhost:5000/users")
+        loader: () => fetch("http://localhost:5000/users"),
+      },
+      {
+        path: "/users/:id",
+        element:
+          <PrivateRouter>
+            <DetailsUser></DetailsUser>
+          </PrivateRouter>
+        ,
+        loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
       }
     ]
   },
@@ -41,6 +56,18 @@ const router = createBrowserRouter([
   {
     path: "/submitInfo",
     element: <SubmitInfo></SubmitInfo>,
+  },
+  {
+    path: "/contactUs",
+    element: <ContactUs></ContactUs>
+  },
+  {
+    path: "/myProfile",
+    element: <MyProfile></MyProfile>
+  },
+  {
+    path: "/updateProfile",
+    element: <UpdateProfile></UpdateProfile>
   },
 
   {
@@ -62,7 +89,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,
 )
