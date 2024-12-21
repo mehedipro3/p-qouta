@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage></HomePage>,
-        loader: () => fetch("http://localhost:5000/users"),
+        loader: () => fetch("http://localhost:5000/datas"),
       },
       {
         path: "/users/:id",
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             <DetailsUser></DetailsUser>
           </PrivateRouter>
         ,
-        loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/datas/${params.id}`)
       }
     ]
   },
