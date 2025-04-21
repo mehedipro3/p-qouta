@@ -10,7 +10,6 @@ import AuthLayout from './Layouts/AuthLayout';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Admin from './Components/Admin';
-import Government from './Components/Government';
 import AuthProvider from './Provider/AuthProvider';
 import HomePage from './Pages/HomePage';
 import SubmitInfo from './Components/SubmitInfo';
@@ -19,6 +18,9 @@ import ContactUs from './Components/ContactUs';
 import MyProfile from './Components/MyProfile';
 import UpdateProfile from './Components/UpdateProfile';
 import PrivateRouter from './Provider/PrivateProvider';
+import AddData from './Components/AddData';
+import AboutUs from './Components/AboutUs';
+
 
 
 const router = createBrowserRouter([
@@ -46,12 +48,12 @@ const router = createBrowserRouter([
 
   {
     path: "/admin",
-    element: <Admin></Admin>
+    element: <Admin></Admin>,
+    loader : ()=> fetch('http://localhost:5000/datas')
   },
-
   {
-    path: "/government",
-    element: <Government></Government>,
+    path: "/addData",
+    element: <AddData></AddData>
   },
   {
     path: "/submitInfo",
@@ -61,6 +63,11 @@ const router = createBrowserRouter([
     path: "/contactUs",
     element: <ContactUs></ContactUs>
   },
+  {
+    path: "/aboutUs",
+    element: <AboutUs></AboutUs>
+  },
+  
   {
     path: "/myProfile",
     element: <MyProfile></MyProfile>
